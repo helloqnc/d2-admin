@@ -16,13 +16,13 @@ module.exports = {
     publicPath: process.env.VUE_APP_PUBLIC_PATH, // 和 publicPath 保持一致
     port: 5000,
     proxy: {
-      '/api': {
+      '/': {
         target: process.env.VUE_APP_DEV_SERVER,
         ws: false,
         changeOrigin: true,
-        pathRewrite: {
-          '^/api': ''
-        }
+        // pathRewrite: {
+        //   '^/': ''
+        // }
       }
     }
   },

@@ -5,18 +5,14 @@
         <li v-for="n in 10" :key="n"></li>
       </ul>
     </div>
-    <div
-      class="page-login--layer page-login--layer-time"
-      flex="main:center cross:center">
-      {{time}}
-    </div>
     <div class="page-login--layer">
       <div
         class="page-login--content"
         flex="dir:top main:justify cross:center box:justify">
         <div class="page-login--content-header">
           <p class="page-login--content-header-motto">
-            时间是一切财富中最宝贵的财富。 <span>—— 德奥弗拉斯多</span>cd
+            <!--someTextInHeader-->
+            <span></span>
           </p>
         </div>
         <div
@@ -96,7 +92,6 @@ export default {
   data () {
     return {
       timeInterval: null,
-      time: dayjs().format('HH:mm:ss'),
       // 快速选择用户
       dialogVisible: false,
       users: [
@@ -202,13 +197,6 @@ export default {
     overflow: auto;
   }
   .page-login--layer-area {
-    overflow: hidden;
-  }
-  // 时间
-  .page-login--layer-time {
-    font-size: 24em;
-    font-weight: bold;
-    color: rgba(0, 0, 0, 0.03);
     overflow: hidden;
   }
   // 登陆页面控件的容器
