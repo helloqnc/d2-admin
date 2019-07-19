@@ -17,7 +17,7 @@ module.exports = {
     port: 5000,
     proxy: {
       '/': {
-        target: process.env.VUE_APP_DEV_SERVER,
+        target: process.env.VUE_APP_SERVER,
         ws: false,
         changeOrigin: true,
         // pathRewrite: {
