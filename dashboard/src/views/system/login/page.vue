@@ -38,7 +38,7 @@
                   <el-input type="text" v-model="formLogin.code" placeholder="- - - -">
                     <template slot="prepend">验证码</template>
                     <template slot="append">
-                      <img class="login-code" :src="captcha">
+                      <img class="login-code" :src="captchaSrc" @click="refreshCaptcha">
                     </template>
                   </el-input>
                 </el-form-item>
@@ -69,6 +69,7 @@ export default {
     return {
       // 表单
       captcha: process.env.VUE_APP_SERVER + 'auth/captcha',
+      captchaSrc: process.env.VUE_APP_SERVER + 'auth/captcha',
       formLogin: {
         username: '',
         password: '',
@@ -97,6 +98,9 @@ export default {
     /**
      * @description 提交表单
      */
+    refreshCaptcha: function () {
+      this.captchaSrc = this.captchaSrc + '?r=' + Math.random()
+    },
     // 提交登录信息
     submit () {
       this.$refs.loginForm.validate((valid) => {

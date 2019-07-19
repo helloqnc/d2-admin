@@ -2,6 +2,7 @@ import store from '@/store'
 import axios from 'axios'
 import { Message } from 'element-ui'
 import util from '@/libs/util'
+import router from '@/router'
 
 // 创建一个错误
 function errorCreate (msg) {
@@ -72,10 +73,14 @@ service.interceptors.response.use(
         case 0:
           // [ 示例 ] code === 0 代表没有错误
           return dataAxios.data
-        case 'xxx':
-          // [ 示例 ] 其它和后台约定的 code
-          errorCreate(`[ code: xxx ] ${dataAxios.msg}: ${response.config.url}`)
+        case 100:
+          // 登录:未成功
+          errorCreate(`${dataAxios.msg}`)
           break
+        // case 'xxx':
+        //   // [ 示例 ] 其它和后台约定的 code
+        //   errorCreate(`[ code: xxx ] ${dataAxios.msg}: ${response.config.url}`)
+        //   break
         default:
           // 不是正确的 code
           errorCreate(`${dataAxios.msg}: ${response.config.url}`)
@@ -87,7 +92,12 @@ service.interceptors.response.use(
     if (error && error.response) {
       switch (error.response.status) {
         case 400: error.message = '请求错误'; break
-        case 401: error.message = '未授权，请登录'; break
+        case 401:
+          error.message = '未授权，请登录'
+          router.push({
+            name: 'login'
+          })
+          break
         case 403: error.message = '拒绝访问'; break
         case 404: error.message = `请求地址出错: ${error.response.config.url}`; break
         case 408: error.message = '请求超时'; break

@@ -26,4 +26,11 @@ class Auth extends Controller
         $captcha = new Captcha($config);
         return $captcha->entry();
     }
+    public function login() {
+//        return json([
+//            'code' => 100,
+//            'msg' => '账号或密码错误'
+//        ]);
+        throw new \think\exception\HttpException(401);
+    }
 }
