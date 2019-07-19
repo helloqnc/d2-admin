@@ -19,7 +19,7 @@ module.exports = {
       '/': {
         target: process.env.VUE_APP_SERVER,
         ws: false,
-        changeOrigin: true,
+        changeOrigin: true
         // pathRewrite: {
         //   '^/': ''
         // }

@@ -5,6 +5,7 @@ namespace app\dashboard\controller;
 use think\App;
 use think\captcha\Captcha;
 use think\Controller;
+use think\Db;
 
 class Auth extends Controller
 {
@@ -31,6 +32,25 @@ class Auth extends Controller
 //            'code' => 100,
 //            'msg' => '账号或密码错误'
 //        ]);
-        throw new \think\exception\HttpException(401);
+//        throw new \think\exception\HttpException(401);
+        $res = Db::name('employee')->find();
+        return json([
+            'code' => 0,
+            'msg' => '登录成功',
+            'data' => [
+                'username' => 'test',
+                'uuid' => $res['uuid'],
+                'name' => '测试用户',
+                'token' => 'testToken'
+            ]
+        ]);
+    }
+    public function test() {
+        $data = [
+            'account' => 'test'
+        ];
+        $userModel = new User();
+        $userModel -> save($data);
+
     }
 }

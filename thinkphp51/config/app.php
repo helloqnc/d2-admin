@@ -83,7 +83,7 @@ return [
     // 兼容PATH_INFO获取
     'pathinfo_fetch'         => ['ORIG_PATH_INFO', 'REDIRECT_PATH_INFO', 'REDIRECT_URL'],
     // pathinfo分隔符
-    'pathinfo_depr'          => '/',
+    'pathinfo_depr'          => '-',
     // HTTPS代理标识
     'https_agent_name'       => '',
     // IP代理获取标识
@@ -142,5 +142,6 @@ return [
     'show_error_msg'         => false,
     // 异常处理handle类 留空使用 \think\exception\Handle
     'exception_handle'       => '',
-
+    // 安全字符串
+    'secret' => 'bb4c6b3fd627f7bba47802972a6ae975'
 ];
