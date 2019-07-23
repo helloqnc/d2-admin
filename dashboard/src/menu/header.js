@@ -2,20 +2,11 @@
 export default [
   { path: '/index', title: '首页', icon: 'home' },
   {
-    title: '页面',
-    icon: 'folder-o',
+    title: '系统设置',
+    icon: 'gear',
     children: [
-      { path: '/page1', title: '页面 1' },
-      { path: '/page2', title: '页面 2' },
-      { path: '/page3', title: '页面 3' }
+      { path: '/setting/employeeGroup', title: '管理员组' },
+      { path: '/employee', title: '管理员' }
     ]
-  },
-  // 恰饭
-  ...process.env.VUE_APP_BUILD_MODE === 'TRAVIS' ? [
-    {
-      path: 'https://gio.ren/w/nP2OALom',
-      title: 'Web进阶教程',
-      icon: 'book'
-    }
-  ] : []
+  }
 ]
