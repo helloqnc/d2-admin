@@ -77,6 +77,9 @@ service.interceptors.response.use(
           // 登录:未成功
           errorCreate(`${dataAxios.msg}`)
           break
+        case 200:
+          errorCreate(`${dataAxios.msg}`)
+          break
         // case 'xxx':
         //   // [ 示例 ] 其它和后台约定的 code
         //   errorCreate(`[ code: xxx ] ${dataAxios.msg}: ${response.config.url}`)

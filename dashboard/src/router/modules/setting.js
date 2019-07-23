@@ -22,6 +22,15 @@ export default {
         ...meta,
         title: '管理员组'
       }
+    },
+    {
+      path: 'api',
+      name: `${pre}api`,
+      component: _import('setting/api/index'),
+      meta: {
+        ...meta,
+        title: '接口管理'
+      }
     }
   ])('setting-')
 }

@@ -6,7 +6,7 @@ export default [
     icon: 'gear',
     children: [
       { path: '/setting/employeeGroup', title: '管理员组' },
-      { path: '/employee', title: '管理员' }
+      { path: '/setting/api', title: '接口管理' }
     ]
   }
 ]
