@@ -21,16 +21,16 @@ export function ApiAdd (params) {
     params
   })
 }
-export function ApiEdit (params) {
+export function ApiEditById (params) {
   return request({
-    url: '/api/edit',
+    url: '/api/editById',
     method: 'post',
     params
   })
 }
-export function ApiDel (params) {
+export function ApiDelById (params) {
   return request({
-    url: '/api/del',
+    url: '/api/delById',
     method: 'post',
     params
   })

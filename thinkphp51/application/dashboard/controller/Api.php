@@ -200,7 +200,7 @@ class Api extends Base
      * @throws \think\Exception
      * @throws \think\exception\PDOException
      */
-    public function del()
+    public function delById()
     {
         $id = input('id');
         $res = $this->apiModel->where('id', $id)->delete();

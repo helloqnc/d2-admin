@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { ApiPagination, ApiAdd, ApiEdit, ApiDel } from '@/api/setting.api'
+import { ApiPagination, ApiAdd, ApiEditById, ApiDelById } from '@/api/setting.api'
 export default {
   name: 'employeeGroup',
   data () {
@@ -159,7 +159,7 @@ export default {
     handleRowEdit (row, done) {
       this.formOptions.saveLoading = true
       // 向服务器发送新增请求
-      ApiEdit({
+      ApiEditById({
         ...row.row
       })
         .then(res => {
@@ -176,7 +176,7 @@ export default {
     handleRowRemove (row, done) {
       this.formOptions.saveLoading = true
       // 向服务器发送新增请求
-      ApiDel({
+      ApiDelById({
         id: row.row.id
       })
         .then(res => {
